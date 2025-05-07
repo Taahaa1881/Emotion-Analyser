@@ -12,13 +12,12 @@ app = FastAPI()
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins during development
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Load the model
 model = load_model()
 
 @app.get("/")
@@ -27,17 +26,13 @@ async def read_root():
 
 @app.post("/predict")
 async def predict_emotion(file: UploadFile = File(...)):
-    # Read and process the image
+    
     contents = await file.read()
     image = Image.open(io.BytesIO(contents))
     
-    # Preprocess the image
     processed_image = preprocess_image(image)
-    
-    # Make prediction
     predictions = model.predict(processed_image)
     
-    # Get the predicted emotion and confidence
     predicted_emotion_idx = np.argmax(predictions[0])
     predicted_emotion = EMOTIONS[predicted_emotion_idx]
     confidence = float(predictions[0][predicted_emotion_idx])
