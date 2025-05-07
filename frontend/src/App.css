@@ -1,0 +1,92 @@
+/* Fade transition for page changes */
+.fade-enter {
+    opacity: 0;
+    z-index: 1;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 400ms;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 400ms;
+}
+
+/* Button glow animation */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px 2px #38bdf8, 0 0 20px 4px #22d3ee;
+    }
+
+    50% {
+        box-shadow: 0 0 30px 8px #38bdf8, 0 0 40px 16px #22d3ee;
+    }
+
+    100% {
+        box-shadow: 0 0 10px 2px #38bdf8, 0 0 20px 4px #22d3ee;
+    }
+}
+
+.animate-glow {
+    animation: glow 2s infinite alternate;
+}
+
+/* Slow glowing background animation */
+@keyframes glow-slow {
+
+    0%,
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.15) translateY(20px);
+        opacity: 0.5;
+    }
+}
+
+@keyframes glow-slow2 {
+
+    0%,
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.1) translateY(-20px);
+        opacity: 0.5;
+    }
+}
+
+.animate-glow-slow {
+    animation: glow-slow 6s ease-in-out infinite alternate;
+}
+
+.animate-glow-slow2 {
+    animation: glow-slow2 7s ease-in-out infinite alternate;
+}
+
+/* Fade-in for text */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 1s ease-out;
+}

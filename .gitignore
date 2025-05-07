@@ -1,0 +1,33 @@
+# Node.js
+node_modules/
+frontend/node_modules/
+
+# Build output
+build/
+dist/
+frontend/build/
+frontend/dist/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+backend/venv/
+venv/
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+
+# Model files (optional, comment out if you want to keep)
+emotion_model.keras 
