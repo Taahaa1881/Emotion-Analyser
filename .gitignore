@@ -29,5 +29,3 @@ Thumbs.db
 .idea/
 *.swp
 
-# Model files (optional, comment out if you want to keep)
-emotion_model.keras 
