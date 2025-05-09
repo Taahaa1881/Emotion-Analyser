@@ -2,9 +2,7 @@
 node_modules/
 frontend/node_modules/
 
-# Build output
-build/
-dist/
+# Node.js build output
 frontend/build/
 frontend/dist/
 
@@ -13,19 +11,28 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-backend/venv/
-venv/
-.env
 
-# OS files
+# Python virtual environments
+venv/
+backend/venv/
+
+# Python environment variables
+.env
+backend/.env
+
+# Python build artifacts
+*.egg-info/
+dist/
+build/
+
+# OS/system files
 .DS_Store
 Thumbs.db
 
 # Logs
 *.log
 
-# IDE/editor
+# IDE/editor settings
 .vscode/
 .idea/
 *.swp
-
