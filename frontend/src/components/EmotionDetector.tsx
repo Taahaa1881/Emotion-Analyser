@@ -51,6 +51,7 @@ const EmotionDetector: React.FC<EmotionDetectorProps> = ({ darkMode }) => {
         }
     };
 
+    // In EmotionDetector.tsx, replace the analyzeEmotion function with:
     const analyzeEmotion = async () => {
         if (!capturedImage) return;
 
@@ -58,22 +59,10 @@ const EmotionDetector: React.FC<EmotionDetectorProps> = ({ darkMode }) => {
         setError(null);
 
         try {
-            // Convert base64 to blob
             const response = await fetch(capturedImage);
             const blob = await response.blob();
-
-            // Create form data
-            const formData = new FormData();
-            formData.append('file', blob, 'image.jpg');
-
-            // Send to backend
-            const result = await axios.post('http://localhost:8000/predict', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-
-            setPredictions(result.data);
+            const result = await analyzeEmotion(blob);
+            setPredictions(result);
         } catch (err) {
             setError('Error analyzing image. Please try again.');
             console.error(err);
